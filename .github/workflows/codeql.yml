@@ -10,6 +10,10 @@ on:
   schedule:
     - cron: '0 3 * * 1' #weekly scan
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   analyse:
     name: Analyze
