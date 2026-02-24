@@ -30,5 +30,14 @@ jobs:
         with:
           languages: java
 
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 22
+
+      # MUST compile Java
+      - name: Build for CodeQL
+        run: mvn -B clean compile
+
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
